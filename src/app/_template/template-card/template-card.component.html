@@ -1,0 +1,27 @@
+<mat-card class="collection-card" appearance="outlined" [style.--dynamic-color]="color">
+  <!-- If preview img, show img -->
+   <div class="image">
+  <div class="image-background" *ngIf="preview?.data" [style.background-image]="'url(data:' + preview.mimetype + ';base64,' + preview.data + ')'"></div>
+
+  <!-- Normal Image (in the foreground) -->
+  <div class="image-foreground">
+    <img *ngIf="preview?.data" [src]="'data:' + preview.mimetype + ';base64,' + preview.data" alt="Preview Image" />
+  </div>
+</div>
+  <!-- If no preview img, show default-bg -->
+  <div *ngIf="!preview?.data" class="default-bg" [style.--dynamic-color]="color">
+    <mat-icon class="layers-icon">layers</mat-icon>
+  </div>
+  <div class="card-container">
+    <mat-card-content>
+      <mat-card-subtitle>{{ title }}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions class="'smallicons">
+      <mat-icon class="layers-smallicon">layers</mat-icon>
+      <span> {{ childCollections }}</span>
+      <mat-icon class="description-smallicon">description</mat-icon>
+      <span> {{ childReferences }}</span>
+      <mat-icon class="language-smallicon">language</mat-icon>
+    </mat-card-actions>
+  </div>
+</mat-card>

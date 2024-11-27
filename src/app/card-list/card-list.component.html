@@ -1,0 +1,14 @@
+<h1 class="card-list-headline">Alle Sammlungen, die öffentlich verfügbar sind</h1>
+<div class="card-list">
+  <ng-container *ngFor="let card of cards">
+    <app-template-card
+      [id]="card.id"
+      [title]="card.title"
+      [color]="card.collection.color"
+      [childCollections]="card.collection.childCollectionsCount"
+      [childReferences]="card.collection.childReferencesCount"
+      [iconUrl]="card.iconUrl"
+      [preview]="card.preview">
+    </app-template-card>
+  </ng-container>
+</div>

@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://repository.9-x.enterprise.134.76.16.75.nip.io/edu-sharing/rest",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  

@@ -1,0 +1,156 @@
+.card-container {
+    position: relative;
+    overflow: visible;
+    background: rgba(255, 255, 255, 0.6);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-height: 125px;
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.collection-card {
+    max-width: 300px;
+    background: var(--dynamic-color, white);
+    
+    overflow: visible;
+    text-align: start;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.image {
+    background: white;
+    z-index: -2;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.image-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    z-index: -1;
+    transform: scale(0.9);
+    transform-origin:bottom;
+  }
+
+.image-foreground img {
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: contain;
+    position: relative;
+    display: inline-block;
+  }
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.collection-card::after,
+.collection-card::before {
+    content: '';
+    position: absolute;
+    height: 103%;
+    width: 103%;
+    // background-image: conic-gradient(from var(--angle),
+    //         rgb(0, 179, 255), transparent 25%, rgb(0, 179, 255), transparent 75%, rgb(0, 179, 255), );
+    
+    background-image: conic-gradient(
+    from var(--angle),
+    var(--dynamic-color, rgb(0, 179, 255)), /* Use dynamic color */
+    transparent 25%, 
+    var(--dynamic-color, rgb(0, 179, 255)), /* Use dynamic color */
+    transparent 75%, 
+    var(--dynamic-color, rgb(0, 179, 255)) /* Use dynamic color */
+  );
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -3;
+    padding: 3px;
+    animation: 5s spin linear infinite;
+    opacity: 0;
+    filter: blur(1rem);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.collection-card:hover {
+    transform: scale(1.025);
+}
+
+.collection-card::before {
+    opacity: 0;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+.collection-card:hover::after{
+    opacity: 1;
+}
+
+.collection-card:hover::before {
+    opacity: 0.2;
+}
+
+.default-bg {
+    background-color: var(--dynamic-color, #821f1f);
+    //background-color: #821f1f;
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    position: relative;
+    display: inline-block;
+}
+
+.layers-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    font-size: 2rem;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.description-smallicon,
+.layers-smallicon {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+.language-smallicon {
+    margin-left: auto;
+    margin-right: 10px;
+}

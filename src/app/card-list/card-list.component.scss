@@ -1,0 +1,17 @@
+// @import '../../sass/var';
+
+
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: flex-start;
+    padding: 16px;
+}
+
+.card-list-headline {
+    text-align: left;
+    margin-left: 25px;
+    font-weight: normal;
+}
