@@ -25,4 +25,27 @@ export class EduSharingService {
           skipCount: queryParams.skipCount,
     });
     }
-}
+    getReferences(
+        collection: string,
+        params: {
+          repository?: string;
+          scope?: any;
+          maxItems?: number;
+          skipCount?: number;
+        } = {}
+      ): Observable<any> {
+        const queryParams = {
+          repository: EduSharingService.repository,
+          collection,
+          ...params,
+        };
+    
+        return this.collectionService.getReferences({
+          repository: queryParams.repository,
+          collection: queryParams.collection,
+          //scope: queryParams.scope,
+          maxItems: queryParams.maxItems,
+          skipCount: queryParams.skipCount,
+        });
+      }
+    }

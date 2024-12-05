@@ -1,0 +1,27 @@
+<div class="layout">
+  <div class="sidebar" [style.--dynamic-color]="color">
+    <div class="image">
+      <div class="image-background" *ngIf="preview?.data"
+        [style.background-image]="'url(data:' + preview.mimetype + ';base64,' + preview.data + ')'"></div>
+
+      <!-- Normal Image (in the foreground) -->
+      <div class="image-foreground">
+        <img *ngIf="preview?.data" [src]="'data:' + preview.mimetype + ';base64,' + preview.data" alt="Preview Image" />
+      </div>
+    </div>
+    <!-- If no preview img, show default-bg -->
+    <div *ngIf="!preview?.data" class="default-bg" [style.--dynamic-color]="color">
+      <mat-icon class="layers-icon">layers</mat-icon>
+    </div>
+    <div class="sidebar-text">
+      <div class="text">
+        <h3>{{title}}</h3>
+        
+        <p *ngIf="materialCount != 0">{{materialCount}} Materialien</p>
+        <p class="text-with-icon"><mat-icon class="material-symbols-outlined">person</mat-icon>{{createdFirstName}} {{createdLastName}}</p>
+      </div>
+    </div>
+  </div>
+
+  <app-reference-card-list [cards]="cards" [color]="color" [preview]="preview" [createdFirstName]="createdFirstName" [createdLastName]="createdLastName"></app-reference-card-list>
+</div>

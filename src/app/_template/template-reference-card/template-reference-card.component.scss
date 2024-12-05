@@ -4,17 +4,23 @@
     background: rgba(255, 255, 255, 0.6);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    min-height: 125px;
-    width: 300px;
-
+    min-height: 175px;
+    width: 250px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    
     cursor: pointer;
 }
 
-.collection-card {
+.card-container .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+
+.reference-card {
     max-width: 300px;
     background: var(--dynamic-color, white);
     
@@ -57,7 +63,7 @@
     height: 150px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    object-fit: contain;
+    object-fit: fill;
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -69,8 +75,8 @@
     inherits: false;
 }
 
-.collection-card::after,
-.collection-card::before {
+.reference-card::after,
+.reference-card::before {
     content: '';
     position: absolute;
     height: 103%;
@@ -97,11 +103,11 @@
     transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
-.collection-card:hover {
+.reference-card:hover {
     transform: scale(1.025);
 }
 
-.collection-card::before {
+.reference-card::before {
     opacity: 0;
 }
 
@@ -115,11 +121,11 @@
     }
 }
 
-.collection-card:hover::after{
+.reference-card:hover::after{
     opacity: 1;
 }
 
-.collection-card:hover::before {
+.reference-card:hover::before {
     opacity: 0.5;
 }
 
@@ -136,7 +142,7 @@
     cursor: pointer;
 }
 
-.layers-icon {
+.description-icon {
     position: absolute;
     top: 50%;
     left: 50%;

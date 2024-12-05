@@ -6,42 +6,39 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-template-card',
-  templateUrl: './template-card.component.html',
-  styleUrls: ['./template-card.component.scss'],
+  selector: 'app-template-reference-card',
   imports: [MatCardModule, MatButtonModule, MatIconModule, CommonModule],
+  templateUrl: './template-reference-card.component.html',
+  styleUrl: './template-reference-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TemplateCardComponent implements OnInit {
+export class TemplateReferenceCardComponent implements OnInit {
   @Input() id!: number;
-  @Input() title!: string;
+  @Input() name!: string;
   @Input() color!: string;
-  @Input() childCollections!: number;
-  @Input() childReferences!: number;
-  @Input() iconUrl!: string;
   @Input() preview!: any;
-  @Input() referenceId!: any;
   @Input() createdFirstName!: string;
   @Input() createdLastName!: string;
-
-  apiResponse: any;
+  @Input() downloadLink!: string;
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-
-  }
-
   onCardClick(): void {
-    const referenceId = this.referenceId;
     const color = this.color;
-    const title = this.title;
-    const preview = JSON.stringify(this.preview);;
+    const name = this.name;
+    const preview = this.preview;
+    const previewUrl = this.preview.url;
     const createdFirstName = this.createdFirstName;
     const createdLastName = this.createdLastName;
+    const downloadLink = this.downloadLink;
 
-    this.router.navigate(['/collection-list/content-list'], {
-      queryParams: { referenceId, color, title, preview, createdFirstName, createdLastName },
+    this.router.navigate(['/collection-list/content-list/content'], {
+      queryParams: { downloadLink, name, previewUrl, createdFirstName, createdLastName },
     });
    }
+
+   ngOnInit(): void {
+
+   }
+
 }

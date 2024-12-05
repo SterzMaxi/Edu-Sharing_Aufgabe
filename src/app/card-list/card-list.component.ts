@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { EduSharingService } from '../_services/edusharing-service';
-import { Node } from 'ngx-edu-sharing-api';
 import { TemplateCardComponent } from "../_template/template-card/template-card.component";
 import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-card-list',
-  imports: [TemplateCardComponent, CommonModule],
+  imports: [TemplateCardComponent, CommonModule, RouterOutlet],
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.scss'],
 })
 export class CardListComponent implements OnInit {
   data: any;
-  //cards: number[] = Array.from({ length: 10 }, (_, index) => index + 1);
   cards: any[] = [];
 
   constructor(private apiService: EduSharingService) {}
