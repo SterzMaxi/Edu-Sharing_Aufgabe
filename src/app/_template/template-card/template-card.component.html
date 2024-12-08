@@ -1,5 +1,4 @@
 <mat-card class="collection-card" appearance="outlined" [style.--dynamic-color]="color" (click)="onCardClick()">
-  <!-- If preview img, show img -->
   <div class="image">
     <div class="image-background" *ngIf="preview?.data"
       [style.background-image]="'url(data:' + preview.mimetype + ';base64,' + preview.data + ')'"></div>

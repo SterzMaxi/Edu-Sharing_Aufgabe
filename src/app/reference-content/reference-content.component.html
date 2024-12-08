@@ -7,9 +7,23 @@
     </div>
     <button mat-raised-button color="primary" (click)="downloadContent()">
         Download
-      </button>
+    </button>
 </div>
 <div class="info">
-    <h3>Ersteller:</h3>
-    {{createdFirstName}} {{createdLastName}}
+    <div class="info-text">
+        <h3>Ersteller:</h3>
+        <p>{{createdFirstName}} {{createdLastName}}</p>
+    </div>
+    <div class="info-text">
+        <h3>Estellt am:</h3>
+        <p>{{formattedCreatedAt}}</p>
+    </div>
+    <div class="info-text">
+        <h3>Datei Typ:</h3>
+        <p>{{mimeType}}</p>
+    </div>
+    <div class="info-text">
+        <h3>Datei Größe:</h3>
+        <p>{{formattedSize}}</p>
+    </div>
 </div>

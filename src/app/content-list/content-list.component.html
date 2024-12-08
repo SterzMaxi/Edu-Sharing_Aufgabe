@@ -16,12 +16,11 @@
     <div class="sidebar-text">
       <div class="text">
         <h3>{{title}}</h3>
-        
         <p *ngIf="materialCount != 0">{{materialCount}} Materialien</p>
         <p class="text-with-icon"><mat-icon class="material-symbols-outlined">person</mat-icon>{{createdFirstName}} {{createdLastName}}</p>
       </div>
     </div>
   </div>
 
-  <app-reference-card-list [cards]="cards" [color]="color" [preview]="preview" [createdFirstName]="createdFirstName" [createdLastName]="createdLastName"></app-reference-card-list>
+  <app-reference-card-list class="card-list" [cards]="cards" [color]="color" [parentPreview]="preview"></app-reference-card-list>
 </div>

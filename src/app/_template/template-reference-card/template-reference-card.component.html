@@ -1,22 +1,20 @@
 <mat-card class="reference-card" appearance="outlined" [style.--dynamic-color]="color" (click)="onCardClick()">
-    <!-- If preview img, show img -->
     <div class="image">
-        <div class="image-background" *ngIf="preview?.isIcon == false"
-            [style.background-image]="'url(' + preview.url + ')'"></div>
         <!-- Normal Image (in the foreground) -->
         <div class="image-foreground">
-            <img *ngIf="preview?.isIcon == false" [src]="preview.url" alt="Preview Image" />
+            <img *ngIf="card.preview?.isIcon == false" [src]="card.preview.url" alt="Preview Image" />
         </div>
     </div>
     <!-- If no preview img, show default-bg -->
-    <div *ngIf="preview?.isIcon == true" class="default-bg" [style.--dynamic-color]="color">
+    <div *ngIf="card.preview?.isIcon == true" class="default-bg" [style.--dynamic-color]="color">
         <mat-icon class="description-icon">description</mat-icon>
     </div>
     <div class="card-container">
         <mat-card-content>
-            <mat-card-subtitle class="text">{{ name }}</mat-card-subtitle>
+            <mat-card-subtitle class="text">{{ card.name }}</mat-card-subtitle>
         </mat-card-content>
         <mat-card-actions class="'smallicons">
+            <img [src]="card.iconURL" alt="icon" class="icon" />
         </mat-card-actions>
     </div>
 </mat-card>

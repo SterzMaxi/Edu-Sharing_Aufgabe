@@ -3,13 +3,12 @@
     <div class="card-list">
         <ng-container *ngIf="cards.length > 0; else noCards">
             <ng-container *ngFor="let card of cards">
-                <app-template-reference-card [name]="card.name" [color]="color" [preview]="card.preview" [createdFirstName]="createdFirstName" [createdLastName]="createdLastName"></app-template-reference-card>
+                <app-template-reference-card [card]="card" [color]="color" [parentPreview]="parentPreview"></app-template-reference-card>
             </ng-container>
         </ng-container>
 
         <ng-template class="notfound-text" #noCards>
             <span>keine Materialien vorhanden</span>
-          </ng-template>
+        </ng-template>
     </div>
 </div>
-<router-outlet></router-outlet>

@@ -6,18 +6,30 @@ import { ReferenceContentComponent } from './reference-content/reference-content
 export const routes: Routes = [
   {
     path: 'collection-list',
-    component: CardListComponent,
-    data: { breadcrumb: 'Home' },
-  },
-  {
-    path: 'collection-list/content-list',
-    component: ContentListComponent,
-    data: { breadcrumb: 'Content List' },
-  },
-  {
-    path: 'collection-list/content-list/content',
-    component: ReferenceContentComponent,
-    data: { breadcrumb: 'Content' },
+    data: { breadcrumb: 'Collection List' },
+    children: [
+      {
+        path: '',
+        data: { breadcrumb: null },
+        component: CardListComponent,
+      },
+      {
+        path: 'content-list/:id',
+        data: { breadcrumb: 'Content List' },
+        children: [
+          {
+            path: '',
+            data: { breadcrumb: null },
+            component: ContentListComponent,
+          },
+          {
+            path: 'content/:referenceId',
+            data: { breadcrumb: 'Content' },
+            component: ReferenceContentComponent,
+          },
+        ],
+      },
+    ],
   },
   {
     path: '**',

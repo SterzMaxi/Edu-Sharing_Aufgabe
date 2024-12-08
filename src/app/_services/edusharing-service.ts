@@ -43,7 +43,6 @@ export class EduSharingService {
         return this.collectionService.getReferences({
           repository: queryParams.repository,
           collection: queryParams.collection,
-          //scope: queryParams.scope,
           maxItems: queryParams.maxItems,
           skipCount: queryParams.skipCount,
         });

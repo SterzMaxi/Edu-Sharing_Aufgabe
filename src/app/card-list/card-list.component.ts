@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { EduSharingService } from '../_services/edusharing-service';
 import { TemplateCardComponent } from "../_template/template-card/template-card.component";
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-card-list',
-  imports: [TemplateCardComponent, CommonModule, RouterOutlet],
+  imports: [TemplateCardComponent, CommonModule],
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.scss'],
 })
@@ -24,7 +23,6 @@ export class CardListComponent implements OnInit {
     };
     this.apiService.getSubcollections('-root-', params).subscribe({
       next: (response) => {
-        console.log('API Response:', response);
         this.data = response;
 
         if (this.data && this.data.collections) {

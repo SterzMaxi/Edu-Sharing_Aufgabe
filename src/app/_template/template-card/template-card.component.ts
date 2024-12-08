@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
+import { NavigationStateService } from '../../_services/navigation-state.service';
 
 @Component({
   selector: 'app-template-card',
@@ -26,22 +27,27 @@ export class TemplateCardComponent implements OnInit {
 
   apiResponse: any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private navigationStateService: NavigationStateService) {}
 
   ngOnInit(): void {
 
   }
 
   onCardClick(): void {
-    const referenceId = this.referenceId;
-    const color = this.color;
-    const title = this.title;
-    const preview = JSON.stringify(this.preview);;
-    const createdFirstName = this.createdFirstName;
-    const createdLastName = this.createdLastName;
+    const data = {
+      referenceId: this.referenceId,
+      color: this.color,
+      title: this.title,
+      preview: JSON.stringify(this.preview),
+      createdFirstName: this.createdFirstName,
+      createdLastName: this.createdLastName,
+      id: this.id,
+    };
 
-    this.router.navigate(['/collection-list/content-list'], {
-      queryParams: { referenceId, color, title, preview, createdFirstName, createdLastName },
+    this.navigationStateService.setStateData(data);
+
+    this.router.navigate(['/collection-list/content-list', this.referenceId], {
+      state: data,
     });
    }
 }

@@ -1,0 +1,11 @@
+<nav>
+  <div class="breadcrumbs">
+  <span *ngFor="let breadcrumb of breadcrumbs; let last = last">
+    <a class="link" *ngIf="!last" (click)="navigateTo(breadcrumb)">{{ breadcrumb.label }}</a>
+    <span *ngIf="last">{{ breadcrumb.label }}</span>
+    <span *ngIf="!last"> >> </span>
+  </span>
+  
+</div>
+<mat-divider></mat-divider>
+</nav>

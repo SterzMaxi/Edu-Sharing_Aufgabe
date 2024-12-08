@@ -1,10 +1,17 @@
-.card-listwrapper{
-    margin-top: 25px;
-    margin-left: 25px;
+.card-listwrapper {
+    text-align: center;
+    margin-left: 4%;
+}
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: flex-start;
+    padding: 16px;
 }
 
-.card-list{
-    display: flex;
-    flex-direction: row;
-    gap: 35px;
+.card-list-headline {
+    text-align: left;
+    margin-left: 25px;
+    font-weight: normal;
 }
