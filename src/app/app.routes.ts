@@ -6,7 +6,7 @@ import { ReferenceContentComponent } from './reference-content/reference-content
 export const routes: Routes = [
   {
     path: 'collection-list',
-    data: { breadcrumb: 'Collection List' },
+    data: { breadcrumb: 'Sammlungen' },
     children: [
       {
         path: '',
@@ -15,7 +15,7 @@ export const routes: Routes = [
       },
       {
         path: 'content-list/:id',
-        data: { breadcrumb: 'Content List' },
+        data: { breadcrumb: 'Sammlung' },
         children: [
           {
             path: '',
@@ -24,7 +24,7 @@ export const routes: Routes = [
           },
           {
             path: 'content/:referenceId',
-            data: { breadcrumb: 'Content' },
+            data: { breadcrumb: 'Material' },
             component: ReferenceContentComponent,
           },
         ],
